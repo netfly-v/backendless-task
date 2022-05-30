@@ -1,6 +1,6 @@
 # Backendless test assignment
 
-[https://netfly-v.github.io/backendless-task](Link to built project)
+[Link to built project](https://netfly-v.github.io/backendless-task)
 
 ## Available Scripts
 
