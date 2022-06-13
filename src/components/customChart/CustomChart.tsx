@@ -22,10 +22,10 @@ ChartJS.register(
   RadialLinearScale,
   ArcElement,
   Title,
-  Tooltip,
+  Tooltip
 );
 
-const DEFAULT_COLORS = [
+const DEFAULT_COLORS: string[] = [
   '255, 99, 132',
   '54, 162, 235',
   '255, 206, 86',
@@ -34,7 +34,7 @@ const DEFAULT_COLORS = [
   '255, 159, 64',
 ];
 
-const getRandomColor = () => Math.round(Math.random() * 255);
+const getRandomColor = (): number => Math.round(Math.random() * 255);
 
 const options = {
   responsive: true,
@@ -46,7 +46,13 @@ const options = {
   },
 };
 
-export const CustomChart = ({ labels, dataValue, chartType }) => {
+interface CustomChartProps {
+  labels: string[];
+  dataValue: string[];
+  chartType: string;
+}
+
+export const CustomChart = ({ labels, dataValue, chartType }: CustomChartProps) => {
   const [colors, setColors] = useState(DEFAULT_COLORS);
 
   useEffect(() => {
@@ -55,7 +61,7 @@ export const CustomChart = ({ labels, dataValue, chartType }) => {
     }
   }, [dataValue, colors]);
 
-  const getRGBAColors = (alpha = 1) => colors.map(color => `rgba(${color}, ${alpha})`);
+  const getRGBAColors = (alpha: number = 1): string[] => colors.map(color => `rgba(${color}, ${alpha})`);
 
   const data = {
     labels: labels,

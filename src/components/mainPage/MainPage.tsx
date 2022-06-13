@@ -2,9 +2,9 @@ import styles from './MainPage.module.css';
 import { useState } from 'react';
 import { CustomChart } from '../customChart/CustomChart';
 
-const CHART_TYPES = ['Bar', 'Doughnut', 'Line', 'Pie', 'Polar'];
-const DEFAULT_LABELS = ['January', 'February', 'March', 'April', 'May', 'June'];
-const DEFAULT_DATA = ['2', '10', '5', '2', '20'];
+const CHART_TYPES: string[] = ['Bar', 'Doughnut', 'Line', 'Pie', 'Polar'];
+const DEFAULT_LABELS: string[] = ['January', 'February', 'March', 'April', 'May', 'June'];
+const DEFAULT_DATA: string[] = ['2', '10', '5', '2', '20'];
 
 export const MainPage = () => {
   const [labels, setLabels] = useState(DEFAULT_LABELS);
@@ -13,7 +13,7 @@ export const MainPage = () => {
   const [yInputValue, setYInputValue] = useState(dataValue.join(','));
   const [chartType, setChartType] = useState(CHART_TYPES[0]);
 
-  const updateChart = (fn, value, key) => {
+  const updateChart = (fn: (setLabels: string[]) => void, value: string, key?: string) => {
     if (!key || key === 'Enter') {
       fn(value.split(','));
     }
